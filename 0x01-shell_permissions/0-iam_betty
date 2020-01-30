@@ -1,2 +1,2 @@
 #!/bin/bash
-usermod -u 10 betty
+usermod -u betty
