@@ -1,2 +1,2 @@
 #!/bin/bash
-find ./* -type f -empty -name ".*" -ls -print | sort
+find ./* -type df -empty -name ".*" -ls -print | sort
