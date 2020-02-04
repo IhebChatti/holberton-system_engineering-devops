@@ -1,2 +1,3 @@
 #!/bin/bash
-find ./* -empty -name ".*" -ls -print "%f\n" | sort
+find ./ -empty printf "%f\n"
+
