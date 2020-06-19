@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#bash script that displays content of curewnt dir in list with name only
+
 export i=0
 for i in *
 do
