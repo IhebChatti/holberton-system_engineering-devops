@@ -11,7 +11,7 @@ do
 		echo "$j"
 		j=$((j+1))
 		if [ $j -ge 60 ]; then
-			j=0
+			j=1
 			break
 		fi
 	done
