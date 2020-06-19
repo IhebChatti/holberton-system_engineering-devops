@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#bash script fizzbuzzer from 1 to 100
+
 export i=1
 while [ $i -le 100 ]
 do
