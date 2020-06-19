@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#bash script;to print Holberton School 10 times
+
 export i=1
 until [ $i -gt 10 ]
 do
