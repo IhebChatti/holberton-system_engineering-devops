@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+export i=0
+for i in *
+do
+	printf '%s\n' "$i" | cut -d '-' -f2-
+done
