@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#bash script to to print hi when i is 9
 export i=0
 while [ $i -lt 10 ]
 do
