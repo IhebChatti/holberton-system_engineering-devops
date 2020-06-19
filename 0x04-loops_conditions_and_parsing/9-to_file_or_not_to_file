@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#bash script show info about holbertonachool file
+
 if [ -e "holbertonschool" ]; then
 	echo "holbertonschool file exists"
 	if [ -s "holbertonschool" ]; then
