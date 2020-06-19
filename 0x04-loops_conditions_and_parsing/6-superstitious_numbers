@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#bash script to print luck from country
+
 export i=1
 while [ $i -le 20 ]
 do
