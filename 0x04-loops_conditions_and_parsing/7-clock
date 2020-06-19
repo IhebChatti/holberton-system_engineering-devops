@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#bash script to show clock till 12:59
+
 export i=0
 export j=1
 while [ $i -le 12 ]
