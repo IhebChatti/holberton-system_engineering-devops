@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Bash script to display infinity and beyond indefinetly
+
+while [ 1 ]
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
