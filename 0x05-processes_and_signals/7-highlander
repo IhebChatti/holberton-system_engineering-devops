@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#Bash script to display indefinetly
+
+invincible() {
+	echo "I am invincible!!!"
+}
+trap invincible SIGTERM
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
