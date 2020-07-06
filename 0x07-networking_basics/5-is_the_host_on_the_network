@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#Bash script that pings an IP address passed as an argument
+
+for var in "$@"
+do
+    ping -c 5 "$var"
+done
