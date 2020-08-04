@@ -1,10 +1,13 @@
-# puppet manifest to update ~/.ssh/config file
+# puppet manifest to update /etc/ssh/ssh_config
 
-file { '~/.ssh/config'
-  ensure  => 'file',
-  path    => '~/.ssh/config',
-  mode    => '600',
-  content => 'Host 34.75.254.10\n
-	IdentityFile ~/.ssh/holberton\n
-	PasswordAuthentication no',
+file_line { 'use the private key':
+  ensure => 'present',
+  path   => '/etc/ssh/ssh_config',
+  line   => 'IdentityFile ~/.ssh/holberton',
+}
+
+file_line { 'refuse pw auth':
+  ensure => 'present',
+  path   => '/etc/ssh/ssh_config',
+  line   => 'PasswordAuthentication no',
 }
