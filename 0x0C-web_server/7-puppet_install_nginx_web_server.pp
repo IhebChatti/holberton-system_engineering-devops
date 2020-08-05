@@ -17,7 +17,7 @@ service { 'nginx':
 
 file_line { '301 Moved Permanently'
   ensure => 'present',
-  path   => '/etc/nginx/sites-available/default',
-  after  => 'listen 80 default_server;',
+  path   => '/etc/nginx/sites-enabled/default',
+  after  => 'server_name _;',
   line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=0MW0mDZysxc permanent;',
 }
