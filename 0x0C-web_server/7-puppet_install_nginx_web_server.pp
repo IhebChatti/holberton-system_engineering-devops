@@ -2,7 +2,7 @@
 #Install Nginx web server (w/ Puppet)
 
 package { 'nginx':
-  ensure   => 'installed',
+  ensure => 'installed',
 }
 
 exec { 'Holberton school':
@@ -18,6 +18,6 @@ service { 'nginx':
 file_line { '301 Moved Permanently'
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default',
-  after  => 'server_name _;',
-  line   => 'rewrite ^/redirect_me http://www.newdomain.com/newlocation permanent;',
+  after  => 'listen 80 default_server;',
+  line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=0MW0mDZysxc permanent;',
 }
