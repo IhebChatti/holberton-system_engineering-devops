@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#Install Nginx web server (w/ Puppet)
+#puppet manifest to install Nginx web server
 
 package { 'nginx':
   ensure => 'installed',
