@@ -6,5 +6,6 @@ sudo apt-get update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 sudo echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
-sed -i "/servername _;/ a\\\trewrite ^/redirect_me$ http://example.com/ permanent;/" /etc/nginx/sites-enabled/default
+redirect="server_name _;\n
+sudo sed -i "/server_name _;/ a\\\trewrite ^/redirect_me$ http://www.example.com/ permanent;" /etc/nginx/sites-available/default
 sudo service nginx start
