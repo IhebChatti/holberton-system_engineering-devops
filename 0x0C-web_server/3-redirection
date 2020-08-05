@@ -9,7 +9,7 @@ sudo echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
 printf %s "server {
     listen 80;
     listen [::]:80 default_server;
-    root   /etc/nginx/html;
+    root   /var/www/html;
     index  index.html index.htm;
     location /redirect_me {
         return 301 http://youtube.com/;
