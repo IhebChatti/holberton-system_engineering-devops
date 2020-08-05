@@ -12,7 +12,7 @@ printf %s "server {
     root   /etc/nginx/html;
     index  index.html index.htm;
     location /redirect_me {
-        return 301 http://cuberule.com/;
+        return 301 http://youtube.com/;
     }
 }" > /etc/nginx/sites-available/default
 sudo service nginx restart
