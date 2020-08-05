@@ -11,7 +11,7 @@ sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/notfound.html
 printf %s "server {
 	listen 80;
 	listen [::]:80 default_server;
-	root   /var/www/html;
+	root   /usr/share/nginx/html;
 	index  index.html index.htm;
 
 	location /redirect_me {
