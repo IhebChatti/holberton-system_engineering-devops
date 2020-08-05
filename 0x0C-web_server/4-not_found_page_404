@@ -5,7 +5,7 @@
 sudo apt-get update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-sudo echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
+sudo echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
 sudo touch /usr/share/nginx/html/notfound.html
 sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/notfound.html
 printf %s "server {
