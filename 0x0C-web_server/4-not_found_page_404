@@ -16,7 +16,7 @@ printf %s "server {
 
 	location /redirect_me {
 		return 301 http://youtube.com/;
-    }
+	}
 
 	error_page 404 /notfound.html;
 	location = /custom_404.html {
