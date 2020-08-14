@@ -2,7 +2,7 @@
 #puppet manifest to install Nginx web server
 
 exec { 'update':
-  command  => 'sudo apt-get update',
+  command  => '/usr/bin/apt-get update',
   provider => 'shell',
 }
 package { 'nginx':
