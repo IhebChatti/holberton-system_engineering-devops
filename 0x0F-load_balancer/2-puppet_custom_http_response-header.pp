@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 #puppet manifest to install Nginx web server
 
 exec { 'update':
