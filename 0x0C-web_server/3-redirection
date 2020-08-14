@@ -11,7 +11,8 @@ printf %s "server {
 	root   /usr/share/nginx/html;
 	index  index.html index.htm;
 
-	rewrite ^/redirect_me$ http://www.google.com permanent;
+	location /redirect_me {
+		return 301 http://youtube.com/;
 	}
 }" > /etc/nginx/sites-available/default
 sudo service nginx restart
