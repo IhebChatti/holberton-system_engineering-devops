@@ -15,14 +15,15 @@ printf %s "server {
     add_header X-Served-By $HOSTNAME;
 	root   /usr/share/nginx/html;
 	index  index.html index.htm;
+
 	location /redirect_me {
 		return 301 http://youtube.com/;
 	}
+
 	error_page 404 /notfound.html;
-	location = /notfound.html {
+	location = /notfound {
 		root /usr/share/nginx/html;
 		internal;
-	}
 	}
 }" > /etc/nginx/sites-available/default
 sudo service nginx restart
