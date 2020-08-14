@@ -2,11 +2,10 @@
 
 exec { 'update':
   command  => '/usr/bin/apt-get update',
-  provider => 'shell',
 }
 package { 'nginx':
   ensure  => 'installed',
-  require => Exec['update']
+  require => Exec['update'],
 }
 
 file { '/var/www/html/index.html':
@@ -22,9 +21,9 @@ file_line { '301 Moved Permanently':
 
 file_line { 'X-Served-By':
   ensure => 'present',
-  path   => '/etc/nginx/sites-available/default'
-  after  => 'listen [::]:80 default_server;'
-  line   => 'add_header X-Served-By $HOSTNAME;'
+  path   => '/etc/nginx/sites-available/default',
+  after  => 'listen [::]:80 default_server;',
+  line   => 'add_header X-Served-By $HOSTNAME;',
 }
 
 service { 'nginx':
