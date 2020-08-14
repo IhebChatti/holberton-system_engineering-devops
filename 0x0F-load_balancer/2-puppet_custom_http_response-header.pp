@@ -6,12 +6,12 @@ exec { 'update':
   provider => 'shell',
 }
 package { 'nginx':
-  ensure => 'installed',
+  ensure  => 'installed',
+  require => Exec['update']
 }
 
-exec { 'HolbertonSchool':
-  command  => 'sudo echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html',
-  provider => 'shell',
+file { '/var/www/html/index.html':
+  content => 'Holberton School',
 }
 
 file_line { '301 Moved Permanently':
@@ -21,7 +21,7 @@ file_line { '301 Moved Permanently':
   line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=0MW0mDZysxc permanent;',
 }
 
-file_line { 'X-Served-By'
+file_line { 'X-Served-By':
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default'
   after  => 'listen [::]:80 default_server;'
