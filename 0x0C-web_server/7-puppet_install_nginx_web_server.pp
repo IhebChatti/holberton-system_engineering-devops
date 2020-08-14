@@ -1,23 +1,26 @@
-#!/usr/bin/env bash
 #puppet manifest to install Nginx web server
 
-package { 'nginx':
-  ensure => 'installed',
+exec { 'update':
+  command  => '/usr/bin/apt-get update',
+}
+-> package { 'nginx':
+  ensure  => installed,
+  require => Exec['update'],
 }
 
-exec { 'HolbertonSchool':
-  command  => 'sudo echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html',
-  provider => 'shell',
-}
-
-file_line { '301 Moved Permanently':
+-> file_line { '301 Moved Permanently':
   ensure => 'present',
-  path   => '/etc/nginx/sites-enabled/default',
-  after  => 'server_name _;',
+  path   => '/etc/nginx/sites-available/default',
+  after  => 'listen 80 default_server;',
   line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=0MW0mDZysxc permanent;',
 }
 
-service { 'nginx':
+-> exec { 'Holberton School':
+  command  => 'sudo echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html',
+  provider => 'shell',
+}
+
+-> service { 'nginx':
   ensure  => running,
   require => Package['nginx'],
 }
