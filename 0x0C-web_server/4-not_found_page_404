@@ -7,7 +7,7 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 sudo echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
 sudo touch /usr/share/nginx/html/notfound.html
-sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/notfound.html
+sudo echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/notfound.html
 printf %s "server {
 	listen 80;
 	listen [::]:80 default_server;
@@ -19,11 +19,9 @@ printf %s "server {
 	}
 
 	error_page 404 /notfound.html;
-	location = /notfound.html {
+	location = /notfound {
 		root /usr/share/nginx/html;
 		internal;
-	}
-
 	}
 }" > /etc/nginx/sites-available/default
 sudo service nginx restart
