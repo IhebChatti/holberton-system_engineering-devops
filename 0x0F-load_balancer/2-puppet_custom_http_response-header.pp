@@ -8,11 +8,6 @@ exec { 'update':
   require => Exec['update'],
 }
 
-exec { 'Holberton School':
-  command  => 'sudo echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html',
-  provider => 'shell',
-}
-
 -> file_line { '301 Moved Permanently':
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default',
@@ -25,6 +20,11 @@ exec { 'Holberton School':
   path   => '/etc/nginx/sites-available/default',
   after  => 'listen 80 default_server;',
   line   => 'add_header X-Served-By ${hostname};',
+}
+
+-> exec { 'Holberton School':
+  command  => 'sudo echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html',
+  provider => 'shell',
 }
 
 -> service { 'nginx':
