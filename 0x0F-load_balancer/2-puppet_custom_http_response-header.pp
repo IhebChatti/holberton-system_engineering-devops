@@ -1,5 +1,7 @@
 #puppet manifest to install Nginx web server
 
+$str = "add_header X-Served-By ${hostname};"
+
 exec { 'update':
   command  => '/usr/bin/apt-get update',
 }
@@ -19,7 +21,7 @@ exec { 'update':
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default',
   after  => 'listen 80 default_server;',
-  line   => 'add_header X-Served-By ${hostname};',
+  line   => $str,
 }
 
 -> exec { 'Holberton School':
