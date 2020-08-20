@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#whoami with another user
+
+sudo -u "$1" whoami
