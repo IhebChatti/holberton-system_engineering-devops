@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #Bash script to run Nginx as Nginx
-wget -O run https://raw.githubusercontent.com/IhebChatti/holberton-system_engineering-devops/master/0x12-web_stack_debugging_2/1-run_nginx_as_nginx
-chmod u+x run
-./run
+pkill apache2
+chown nginx:nginx /etc/nginx/nginx.conf
+chmod 600 /etc/nginx/nginx.conf
+sed -i "s/80/8080/g" /etc/nginx/sites-available/default
+sudo -u nginx service nginx restart
