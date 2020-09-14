@@ -23,12 +23,14 @@ if __name__ == "__main__":
             completed_tasks += 1
 
     with open('{}.json'.format(argv[1]), 'w') as f:
+        to_json = {}
+        user_tasks = []
         for task in tasks:
-            all_tasks = []
-            task_dict = {}
-            task_dict['task'] = task.get('title')
-            task_dict['completed'] = task.get('completed')
-            task_dict['username'] = username
-            all_tasks.append(task_dict)
-            data = json.dumps(all_tasks)
-            f.write(data)
+            all_tasks = {}
+            all_tasks['task'] = task.get("title")
+            all_tasks['completed'] = task.get("completed")
+            all_tasks['username'] = username
+            user_tasks.append(all_tasks)
+        to_json[argv[1]] = user_tasks
+        json_obj = json.dumps(to_json)
+        f.write(json_obj)
