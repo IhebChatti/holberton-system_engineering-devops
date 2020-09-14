@@ -11,8 +11,8 @@ if __name__ == "__main__":
     users_dict = {}
     big_dict = {}
     for user in users:
-        _id = user.get('id')
-        username = user.get('username')
+        _id = user.get("id")
+        username = user.get("username")
         big_dict[_id] = []
         users_dict[_id] = username
 
@@ -22,7 +22,7 @@ if __name__ == "__main__":
         all_tasks = {}
         all_tasks['task'] = task.get("title")
         all_tasks['completed'] = task.get("completed")
-        all_tasks['username'] = username
+        all_tasks['username'] = users_dict.get(userId)
         all_mighty_dict = {}
         big_dict.get(userId).append(all_tasks)
 
