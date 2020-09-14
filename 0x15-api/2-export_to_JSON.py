@@ -24,10 +24,11 @@ if __name__ == "__main__":
 
     with open('{}.json'.format(argv[1]), 'w') as f:
         for task in tasks:
-            my_dict = {argv[1]: [{
-                "task": task.get("title"),
-                "completed": task.get("completed"),
-                "username": username
-            }]
-            }
-            json.dump(my_dict, f)
+            all_tasks = []
+            task_dict = {}
+            task_dict['task'] = task.get('title')
+            task_dict['completed'] = task.get('completed')
+            task_dict['username'] = username
+            all_tasks.append(task_dict)
+            data = json.dumps(all_tasks)
+            f.write(data)
