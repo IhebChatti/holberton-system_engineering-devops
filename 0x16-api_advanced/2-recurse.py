@@ -19,7 +19,7 @@ def recurse(subreddit, hot_list=[], after=""):
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     headers = {"User-Agent": "Lothric_21"}
     if after:
-        url = url + '?after={}'.format(after)
+        url += '?after={}'.format(after)
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code == 404:
         return None
