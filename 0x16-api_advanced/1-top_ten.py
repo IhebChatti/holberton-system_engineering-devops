@@ -11,12 +11,12 @@ def top_ten(subreddit):
     Args:
         subreddit ([str]): [subreddit name]
     """
-    url = 'https://www.reddit.com/r/{}/top.json?limit=11'.format(subreddit)
+    url = 'https://www.reddit.com/r/{}/top.json?limit=10'.format(subreddit)
     headers = {"User-Agent": "Lothric_21"}
     response = requests.get(url, headers=headers, allow_redirects=False)
+    top_posts = response.json().get('data').get('children')
     if response.status_code == 404:
         print('None')
         return
-    top_subs = response.json().get('data')
-    for sub in top_subs.get('children'):
+    for sub in top_posts:
         print(sub.get('data').get('title'))
