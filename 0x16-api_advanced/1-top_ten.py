@@ -11,7 +11,7 @@ def top_ten(subreddit):
     Args:
         subreddit ([str]): [subreddit name]
     """
-    url = 'https://www.reddit.com/r/{}/top.json?limit=10'.format(subreddit)
+    url = 'https://www.reddit.com/r/{}/top.json?limit=11'.format(subreddit)
     headers = {"User-Agent": "Lothric_21"}
     response = requests.get(url, headers=headers)
     if response.status_code == 404:
