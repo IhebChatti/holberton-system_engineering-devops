@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-pkill -HUP gunicorn
+kill -HUP `ps -C gunicorn fch -o pid | head -n 1`
