@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-sudo systemctl reload gunicorn.service
+pkill -HUP gunicorn
