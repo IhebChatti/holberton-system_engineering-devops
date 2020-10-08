@@ -5,7 +5,7 @@ exec { 'change Ulimit':
   path    => '/bin/',
 }
 
-service { 'nginx':
-  ensure  => running,
-  require => Package['nginx'],
+exec { 'nginx restart':
+  command => '/usr/bin/sudo service nginx restart',
+  path    => '/usr/sbin/',
 }
