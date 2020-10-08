@@ -5,7 +5,7 @@ exec { 'change Ulimit':
   path    => '/bin/',
 }
 
-exec { 'nginx restart':
+-> exec { 'nginx restart':
   command => 'nginx restart',
   path    => '/etc/init.d/',
 }
